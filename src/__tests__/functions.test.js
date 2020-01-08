@@ -46,10 +46,6 @@ describe('Bank account methods and properties', () => {
     bankAccount.balance = 1000
   })
 
-  afterEach(() => {
-    console.log('Test passed!')
-  })
-
   test('Initial balance is 1000', () => {
     expect(bankAccount.balance).toBe(1000)
   })
