@@ -15,9 +15,8 @@ it('Renders todos', async () => {
   await act(async () => {
     const { container } = render(<Todos />)
     component = container
+    //Grabs the dom container from the Todos component and reassigns it to the component variable
   })
-
-  console.log(component.textContent)
 
   expect(component.textContent).toContain('test title')
 })
