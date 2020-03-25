@@ -18,6 +18,13 @@ test('sum() should add two numbers', () => {
 
 
 
+// REFERENCE TYPES AND TOBE VS TOEQUAL
+test('Reference Types are special', () => { // SHOW HOW TOBE WILL FAIL (REFERENCE TYPES ARE SPECIAL)
+  expect([12]).toEqual([12]);
+});
+
+
+
 // TO BE - RETURN STRING EXAMPLE
 test('sayHello() should return hello', () => {
   expect(sayHello()).toBe('hello');
