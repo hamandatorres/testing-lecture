@@ -3,8 +3,10 @@ import { render, act } from '@testing-library/react'
 import axios from 'axios'
 import Todos from '../Components/Todos'
 
+// Have React Testing Library open during testing: https://testing-library.com/docs/intro
+
 it('Renders todos', async () => {
-  let component
+  let component;
 
   jest.spyOn(axios, 'get').mockImplementation(() =>
     Promise.resolve({
@@ -14,7 +16,7 @@ it('Renders todos', async () => {
 
   await act(async () => {
     const { container } = render(<Todos />)
-    component = container
+    component = container;
     //Grabs the dom container from the Todos component and reassigns it to the component variable
   })
 

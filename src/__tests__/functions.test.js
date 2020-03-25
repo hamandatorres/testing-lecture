@@ -1,5 +1,7 @@
 const { sum, add, subtract, multiply, divide, sayHello, fetchUser } = require('../functions')
 
+// Have this up during unit testing: https://jestjs.io/docs/en/api
+
 // NOTE: test and describe are two "globals" that we can use without importing
 
 // // INDIVIDUAL TESTS
