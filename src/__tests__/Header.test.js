@@ -8,6 +8,11 @@ import Header from '../Components/Header'
 
 // Let's write our first test
 it('Does not show dropdown when mounted', () => {
+  // We can grab elements from the DOM using methods similarly to how we do w/ vanilla JS
+    // RTL has its own methods though, don't use vanilla methods
+  // A reference of methods we can use: https://testing-library.com/docs/dom-testing-library/cheatsheet
+  // We'll get our first item using queryByTestId
+
   // We will destructure queryByTestId from render and point it at our Header component using the render method from the testing library
   // import above.
   const { queryByTestId } = render(<Header />)

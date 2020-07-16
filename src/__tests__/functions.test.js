@@ -1,9 +1,9 @@
 const { sum, add, subtract, multiply, divide, sayHello, fetchUser } = require('../functions')
 
-// Go over matchers https://jestjs.io/docs/en/expect
+// Go over methods & matchers https://jestjs.io/docs/en/expect
   // (Have this open and show docs for each method below when covering them)
   // Were going to focus on just expect today (show doc for this)
-    // expect takes two arguments: the first is a description, the second is a callback storing the test logic
+    // test method takes two arguments: the first is a description, the second is a callback storing the test logic
 
 // NOTE: test and describe are two "globals" that we can use without importing
 
@@ -11,11 +11,12 @@ const { sum, add, subtract, multiply, divide, sayHello, fetchUser } = require('.
 
 // TO BE - RETURN NUMBER EXAMPLE
 test('sum() should add two numbers', () => {
+  
   expect(sum(1, 2)).toBe(3);
 });
 
 // TO BE A NUMBER - RETURN NUMBER EXAMPLE
-test('sum() should add two numbers', () => {
+test('sum() should return a number', () => {
   expect(sum(1, 2)).not.toBeNaN();
 });
 

@@ -1,3 +1,5 @@
+// Cover Header.test.js first
+
 import React from 'react'
 import { render, act } from '@testing-library/react'
 import axios from 'axios'
@@ -8,7 +10,6 @@ it('Renders todos', async () => {
   // We'll need to store something in a variable called component later, so we'll go ahead and declare it first
     let component;
   
-    // Cover Header.test.js first
 
     // We use the spyOn method of Jest to mock a function
       // My reference https://jestjs.io/docs/en/jest-object#jestspyonobject-methodname
