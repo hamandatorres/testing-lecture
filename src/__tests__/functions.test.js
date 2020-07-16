@@ -1,6 +1,9 @@
 const { sum, add, subtract, multiply, divide, sayHello, fetchUser } = require('../functions')
 
-// Have this up during unit testing: https://jestjs.io/docs/en/api
+// Go over matchers https://jestjs.io/docs/en/expect
+  // (Have this open and show docs for each method below when covering them)
+  // Were going to focus on just expect today (show doc for this)
+    // expect takes two arguments: the first is a description, the second is a callback storing the test logic
 
 // NOTE: test and describe are two "globals" that we can use without importing
 
@@ -19,7 +22,10 @@ test('sum() should add two numbers', () => {
 
 
 // REFERENCE TYPES AND TOBE VS TOEQUAL
-test('Reference Types are special', () => { // SHOW HOW TOBE WILL FAIL (REFERENCE TYPES ARE SPECIAL)
+test('Reference Types are special', () => {
+  // SHOW HOW TOBE WILL FAIL (REFERENCE TYPES ARE SPECIAL)
+  // Reference the following to show primitive types and reference types are special
+  // // https://jestjs.io/docs/en/expect#tobevalue
   expect([12]).toEqual([12]);
 });
 
@@ -79,6 +85,8 @@ test('Names array should not contain Preston', () => {
 
 // TEST API CALL
 test("User name is Leanne", async () => {
+  // Show docs for assertions https://jestjs.io/docs/en/expect#expectassertionsnumber
+    // Our assertion here is fetchUser()
   expect.assertions(1);
   const data = await fetchUser();
   expect(data.name).toEqual('Leanne Graham');
@@ -116,18 +124,24 @@ describe("Math functions:", () => {
 // TEST OBJECT METHODS - BANK ACCOUNT EXAMPLE
 
 // A FEW MORE GLOBALS THAT COULD BE USEFUL - more in docs
-// - beforeAll(() => {
-// -- runs before all tests start
-// -- setup a connection to a mock db (more in jest docs)
-// -- used for dummy data for the tests
-// - afterAll(() => {
-// -- runs after all the tests are completed
-// -- shut down connection to mock db
-// - beforeEach(() => {
-// -- fires before each test
-// - afterEach(() => {
-// -- fires after each test
+  // Show the following as reference https://jestjs.io/docs/en/api
+  // We will show an example of beforeEach() and afterAll()
+// Describe the following as common globals
+  // - beforeEach(() => {
+  // -- fires before each test
+  // - afterEach(() => {
+  // -- fires after each test
+  // - beforeAll(() => {
+  // -- runs before all tests start
+  // -- setup a connection to a mock db (more in jest docs)
+  // -- used for dummy data for the tests
+  // - afterAll(() => {
+  // -- runs after all the tests are completed
+  // -- shut down connection to mock db
 
+// Let's first set up an object we'll be working with
+  // We could have easily imported this object if it were exported from a js file
+    // For demo purposes, we're declaring it here
 let bankAccount = {
   balance: 1000,
   depositMoney(amount) {
@@ -138,6 +152,7 @@ let bankAccount = {
   },
 };
 
+// Let's set up a test group for our tests to keep things organized and clear
 describe('Bank account methods and properties', () => {
   beforeEach(() => {
     bankAccount.balance = 1000;
@@ -156,4 +171,13 @@ describe('Bank account methods and properties', () => {
     bankAccount.withdrawMoney(2000);
     expect(bankAccount.balance).toBe(-1000);
   });
+
+  afterAll(() => {
+    bankAccount.balance = 0
+  })
 });
+
+// Let's see if our afterAll did the job
+test('Account balance should be wiped out', () => {
+  expect(bankAccount.balance).toBe(0);
+})
